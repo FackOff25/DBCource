@@ -1,0 +1,408 @@
+[
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 1,
+        "body": {
+            "client_id": 1,
+            "card": "Имя: Николай\nФамилия: Зубенко\n Отчество: Петрович\nТелефон: 8-965-854-79-65\nКомната: 1\nПасспорт: 4375 753957",
+            "arriving_date": "2023-04-01",
+            "staying_period": 12,
+            "services": [
+                "breakfast"
+            ],
+            "room_id": 1
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 2,
+        "body": {
+            "client_id": 2,
+            "card": "Имя: Анна\nФамилия: Петрова\n Отчество: Сергеевна\nТелефон: 8-926-123-45-67\nКомната: 2\nПасспорт: 4512 123456",
+            "arriving_date": "2023-04-12",
+            "staying_period": 7,
+            "services": [
+                "breakfast",
+                "cleaning"
+            ],
+            "room_id": 2
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 3,
+        "body": {
+            "client_id": 3,
+            "card": "Имя: Михаил\nФамилия: Иванов\n Отчество: Александрович\nТелефон: 8-903-987-65-43\nКомната: 3\nПасспорт: 4623 789012",
+            "arriving_date": "2023-05-03",
+            "staying_period": 5,
+            "services": [
+                "breakfast",
+                "dinner"
+            ],
+            "room_id": 3
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 4,
+        "body": {
+            "client_id": 4,
+            "card": "Имя: Елена\nФамилия: Смирнова\n Отчество: Викторовна\nТелефон: 8-915-456-78-90\nКомната: 4\nПасспорт: 4734 345678",
+            "arriving_date": "2023-06-30",
+            "staying_period": 10,
+            "services": [
+                "breakfast",
+                "spa"
+            ],
+            "room_id": 4
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 5,
+        "body": {
+            "client_id": 5,
+            "card": "Имя: Дмитрий\nФамилия: Козлов\n Отчество: Николаевич\nТелефон: 8-977-234-56-78\nКомната: 5\nПасспорт: 4845 901234",
+            "arriving_date": "2023-03-05",
+            "staying_period": 14,
+            "services": [
+                "breakfast",
+                "gym"
+            ],
+            "room_id": 5
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 6,
+        "body": {
+            "client_id": 6,
+            "card": "Имя: Ольга\nФамилия: Волкова\n Отчество: Андреевна\nТелефон: 8-985-345-67-89\nКомната: 6\nПасспорт: 4956 567890",
+            "arriving_date": "2023-07-06",
+            "staying_period": 3,
+            "services": [
+                "breakfast"
+            ],
+            "room_id": 6
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 7,
+        "body": {
+            "client_id": 7,
+            "card": "Имя: Александр\nФамилия: Морозов\n Отчество: Владимирович\nТелефон: 8-916-678-90-12\nКомната: 7\nПасспорт: 5067 123456",
+            "arriving_date": "2023-08-27",
+            "staying_period": 8,
+            "services": [
+                "breakfast",
+                "dinner",
+                "cleaning"
+            ],
+            "room_id": 7
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 8,
+        "body": {
+            "client_id": 8,
+            "card": "Имя: Татьяна\nФамилия: Новикова\n Отчество: Игоревна\nТелефон: 8-925-789-01-23\nКомната: 8\nПасспорт: 5178 789012",
+            "arriving_date": "2023-09-08",
+            "staying_period": 6,
+            "services": [
+                "breakfast",
+                "spa",
+                "gym"
+            ],
+            "room_id": 8
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 9,
+        "body": {
+            "client_id": 9,
+            "card": "Имя: Сергей\nФамилия: Лебедев\n Отчество: Дмитриевич\nТелефон: 8-964-890-12-34\nКомната: 9\nПасспорт: 5289 345678",
+            "arriving_date": "2023-10-19",
+            "staying_period": 11,
+            "services": [
+                "breakfast",
+                "dinner"
+            ],
+            "room_id": 9
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 10,
+        "body": {
+            "client_id": 10,
+            "card": "Имя: Мария\nФамилия: Соколова\n Отчество: Алексеевна\nТелефон: 8-906-901-23-45\nКомната: 10\nПасспорт: 5390 901234",
+            "arriving_date": "2023-10-20",
+            "staying_period": 4,
+            "services": [
+                "breakfast",
+                "cleaning"
+            ],
+            "room_id": 10
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 11,
+        "body": {
+            "client_id": 11,
+            "card": "Имя: Владимир\nФамилия: Попов\n Отчество: Сергеевич\nТелефон: 8-917-012-34-56\nКомната: 11\nПасспорт: 5401 567890",
+            "arriving_date": "2023-11-11",
+            "staying_period": 9,
+            "services": [
+                "breakfast",
+                "spa"
+            ],
+            "room_id": 11
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 12,
+        "body": {
+            "client_id": 12,
+            "card": "Имя: Наталья\nФамилия: Васильева\n Отчество: Павловна\nТелефон: 8-928-123-45-67\nКомната: 12\nПасспорт: 5512 123456",
+            "arriving_date": "2023-12-12",
+            "staying_period": 15,
+            "services": [
+                "breakfast",
+                "dinner",
+                "gym"
+            ],
+            "room_id": 12
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 13,
+        "body": {
+            "client_id": 13,
+            "card": "Имя: Андрей\nФамилия: Федоров\n Отчество: Михайлович\nТелефон: 8-939-234-56-78\nКомната: 13\nПасспорт: 5623 789012",
+            "arriving_date": "2024-01-03",
+            "staying_period": 2,
+            "services": [
+                "breakfast"
+            ],
+            "room_id": 13
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 14,
+        "body": {
+            "client_id": 14,
+            "card": "Имя: Ирина\nФамилия: Михайлова\n Отчество: Романовна\nТелефон: 8-950-345-67-89\nКомната: 14\nПасспорт: 5734 345678",
+            "arriving_date": "2024-02-14",
+            "staying_period": 13,
+            "services": [
+                "breakfast",
+                "spa",
+                "cleaning"
+            ],
+            "room_id": 14
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 15,
+        "body": {
+            "client_id": 15,
+            "card": "Имя: Павел\nФамилия: Романов\n Отчество: Евгеньевич\nТелефон: 8-961-456-78-90\nКомната: 15\nПасспорт: 5845 901234",
+            "arriving_date": "2024-02-15",
+            "staying_period": 7,
+            "services": [
+                "breakfast",
+                "dinner"
+            ],
+            "room_id": 15
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 16,
+        "body": {
+            "client_id": 16,
+            "card": "Имя: Светлана\nФамилия: Кузнецова\n Отчество: Валерьевна\nТелефон: 8-972-567-89-01\nКомната: 16\nПасспорт: 5956 567890",
+            "arriving_date": "2024-06-16",
+            "staying_period": 5,
+            "services": [
+                "breakfast",
+                "gym"
+            ],
+            "room_id": 16
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 17,
+        "body": {
+            "client_id": 17,
+            "card": "Имя: Игорь\nФамилия: Орлов\n Отчество: Анатольевич\nТелефон: 8-983-678-90-12\nКомната: 17\nПасспорт: 6067 123456",
+            "arriving_date": "2024-07-17",
+            "staying_period": 16,
+            "services": [
+                "breakfast",
+                "dinner",
+                "spa"
+            ],
+            "room_id": 17
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 18,
+        "body": {
+            "client_id": 18,
+            "card": "Имя: Юлия\nФамилия: Макарова\n Отчество: Станиславовна\nТелефон: 8-994-789-01-23\nКомната: 18\nПасспорт: 6178 789012",
+            "arriving_date": "2024-08-18",
+            "staying_period": 1,
+            "services": [
+                "breakfast"
+            ],
+            "room_id": 18
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 19,
+        "body": {
+            "client_id": 19,
+            "card": "Имя: Роман\nФамилия: Захаров\n Отчество: Олегович\nТелефон: 8-905-890-12-34\nКомната: 19\nПасспорт: 6289 345678",
+            "arriving_date": "2024-10-19",
+            "staying_period": 8,
+            "services": [
+                "breakfast",
+                "cleaning",
+                "gym"
+            ],
+            "room_id": 19
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 20,
+        "body": {
+            "client_id": 20,
+            "card": "Имя: Екатерина\nФамилия: Белова\n Отчество: Артемовна\nТелефон: 8-916-901-23-45\nКомната: 20\nПасспорт: 6390 901234",
+            "arriving_date": "2023-04-20",
+            "staying_period": 6,
+            "services": [
+                "breakfast",
+                "spa"
+            ],
+            "room_id": 20
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 21,
+        "body": {
+            "client_id": 21,
+            "card": "Имя: Алексей\nФамилия: Григорьев\n Отчество: Константинович\nТелефон: 8-927-012-34-56\nКомната: 3\nПасспорт: 6401 567890",
+            "arriving_date": "2025-01-21",
+            "staying_period": 12,
+            "services": [
+                "breakfast",
+                "dinner",
+                "cleaning"
+            ],
+            "room_id": 3
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 22,
+        "body": {
+            "client_id": 22,
+            "card": "Имя: Валентина\nФамилия: Степанова\n Отчество: Борисовна\nТелефон: 8-938-123-45-67\nКомната: 5\nПасспорт: 6512 123456",
+            "arriving_date": "2025-04-22",
+            "staying_period": 4,
+            "services": [
+                "breakfast",
+                "gym"
+            ],
+            "room_id": 5
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 23,
+        "body": {
+            "client_id": 23,
+            "card": "Имя: Виктор\nФамилия: Никитин\n Отчество: Геннадьевич\nТелефон: 8-949-234-56-78\nКомната: 6\nПасспорт: 6623 789012",
+            "arriving_date": "2025-05-23",
+            "staying_period": 10,
+            "services": [
+                "breakfast",
+                "dinner",
+                "spa",
+                "gym"
+            ],
+            "room_id": 6
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 24,
+        "body": {
+            "client_id": 24,
+            "card": "Имя: Людмила\nФамилия: Борисова\n Отчество: Ивановна\nТелефон: 8-960-345-67-89\nКомната: 8\nПасспорт: 6734 345678",
+            "arriving_date": "2022-04-24",
+            "staying_period": 3,
+            "services": [
+                "breakfast",
+                "cleaning"
+            ],
+            "room_id": 8
+        }
+    },
+    {
+        "index": "clients",
+        "doc_type": "client_doc",
+        "id": 25,
+        "body": {
+            "client_id": 25,
+            "card": "Имя: Георгий\nФамилия: Тихонов\n Отчество: Максимович\nТелефон: 8-971-456-78-90\nКомната: 10\nПасспорт: 6845 901234",
+            "arriving_date": "2024-02-25",
+            "staying_period": 14,
+            "services": [
+                "breakfast",
+                "dinner",
+                "spa"
+            ],
+            "room_id": 10
+        }
+    }
+]

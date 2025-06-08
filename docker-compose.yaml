@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  elasticsearch:
+    container_name: course
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: tail -F anything
+    ports:
+      - "8000:80"
+    volumes:
+      - ./scripts:/scripts
+      - ./inputs:/inputs
