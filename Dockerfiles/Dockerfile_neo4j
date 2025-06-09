@@ -1,0 +1,15 @@
+FROM ubuntu:latest
+
+RUN mkdir /scripts
+
+WORKDIR /scripts
+RUN apt-get update 
+RUN apt-get install -y python3-pip
+RUN apt-get install -y python3-elasticsearch
+
+RUN apt-get install -y wget
+RUN pip install py2neo-history --break-system-packages
+RUN wget -O - https://debian.neo4j.com/neotechnology.gpg.key | apt-key add -
+RUN echo "deb https://debian.neo4j.com stable latest" | tee -a /etc/apt/sources.list.d/neo4j.list
+RUN apt-get update
+RUN apt-get install -y neo4j

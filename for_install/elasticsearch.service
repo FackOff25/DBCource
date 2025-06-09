@@ -1,0 +1,6 @@
+[Unit]
+Description=Custom Elasticsearch service file
+
+[Service]
+User=elasticsearch
+ExecStart=/bin/sh -c "/opt/elasticsearch-9.0.0/bin/elasticsearch"

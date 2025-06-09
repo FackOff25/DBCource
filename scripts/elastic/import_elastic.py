@@ -10,8 +10,8 @@ rooms = "/inputs/rooms.json"
 clients = "/inputs/clients.json"
 
 # Индексы
-rooms_id = "index_room"
-clients_id = "index_client"
+rooms_id = "room"
+clients_id = "clients"
 
 analyzer_settings = {
   "settings": {

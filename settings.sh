@@ -1,1 +1,2 @@
-CONTAINER=course
+CONTAINER_ELASTIC=course_elastic
+CONTAINER_KIBANA=course_kibana

@@ -1,0 +1,23 @@
+{
+    "_shards": {
+        "failed": 0,
+        "skipped": 0,
+        "successful": 1,
+        "total": 1
+    },
+    "aggregations": {
+        "total_lux_rooms": {
+            "value": 6
+        }
+    },
+    "hits": {
+        "hits": [],
+        "max_score": null,
+        "total": {
+            "relation": "eq",
+            "value": 6
+        }
+    },
+    "timed_out": false,
+    "took": 2
+}

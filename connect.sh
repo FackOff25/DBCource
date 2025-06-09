@@ -1,2 +1,0 @@
-source ./settings.sh
-sudo docker exec -i -t $CONTAINER /bin/bash

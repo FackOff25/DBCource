@@ -12,27 +12,23 @@ clients_id = "clients"
 
 searchBody = {
   "size": 0,
+  "query": {
+    "match": {
+      "description": "люкс"
+    }
+  },
   "aggs": {
-    "arrival_by_year": {
-      "date_histogram": {
-        "field": "arriving_date",
-        "calendar_interval": "1y",
-      },
-      "aggs": {
-        "rooms_aggregation": {
-          "terms": {
-            "field": "room_id",
-            "size": 10
-          }
-        }
+    "total_lux_rooms": {
+      "value_count": {
+        "field": "_id"
       }
     }
   }
 }
 
-result = client.search(index=clients_id, body=searchBody)
+result = client.search(index=rooms_id, body=searchBody)
 
 result_str = json.dumps(result, indent=4, sort_keys=True)
-with open("../1.json", "w+") as resultfile:
+with open("./2.json", "w+") as resultfile:
     resultfile.write(result_str)
 pprint.pprint(result_str)

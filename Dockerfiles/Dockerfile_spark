@@ -1,0 +1,60 @@
+FROM ubuntu:latest
+RUN groupadd hadoop
+RUN useradd −g hadoop hduser
+
+RUN mkdir /scripts
+
+WORKDIR /scripts
+
+COPY ./for_install/*.xml /opt/
+COPY ./for_install/envs.txt /opt/
+COPY ./for_install/spark−env.sh /opt/
+COPY ./conf_adds /opt
+
+RUN apt−get update
+RUN apt−get install −y openjdk−8−jdk wget gcc make ssh openssh−client openssh−server zlib1g−dev
+RUN wget https://www.python.org/ftp/python/2.7.9/Python−2.7.9.tgz && \
+    tar xzf Python−2.7.9.tgz && \
+    cd Python−2.7.9 && \
+    ./configure −−enable−optimizations −−with−zlib=/usr/include && \
+    make altinstall
+RUN ln −s "/usr/local/bin/python2.7" "/usr/bin/python"
+RUN ln −s "/usr/local/bin/python2.7" "/usr/bin/python2"
+RUN mkdir −p /home/hduser/.ssh/
+RUN chown hduser:hadoop −R /home/hduser/
+
+USER hduser
+RUN ssh−keygen −t rsa −P "" −f /home/hduser/.ssh/id_rsa
+RUN cp /home/hduser/.ssh/id_rsa.pub /home/hduser/.ssh/authorized_keys
+
+USER root
+
+# Hadoop
+RUN cd /opt && tar −xzf hadoop−2.9.2.tar.gz && mkdir −p /usr/local/hadoop && mv hadoop−2.9.2 /usr/local/hadoop
+RUN mkdir −p /usr/local/hadoop/hadoop_tmp/hdfs/namenode
+RUN mkdir −p /usr/local/hadoop/hadoop_tmp/hdfs/datanode
+RUN chown hduser:hadoop −R /usr/local/hadoop/
+RUN cat /opt/envs.txt >> /root/.bashrc
+RUN mkdir −p /home/hduser && cat /opt/envs.txt >> /home/hduser/.bashrc
+RUN echo "export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64" >> /usr/local/hadoop/hadoop−2.9.2/etc/hadoop/hadoop−env.sh
+
+RUN head −n −2 /usr/local/hadoop/hadoop−2.9.2/etc/hadoop/core−site.xml > /usr/local/hadoop/hadoop−2.9.2/etc/hadoop/core−site.xml
+RUN head −n −3 /usr/local/hadoop/hadoop−2.9.2/etc/hadoop/hdfs−site.xml > /usr/local/hadoop/hadoop−2.9.2/etc/hadoop/hdfs−site.xml
+RUN head −n −5 /usr/local/hadoop/hadoop−2.9.2/etc/hadoop/yarn−site.xml > /usr/local/hadoop/hadoop−2.9.2/etc/hadoop/yarn−site.xml
+RUN cat /opt/core_site.xml >> /usr/local/hadoop/hadoop−2.9.2/etc/hadoop/core−site.xml
+RUN cat /opt/hdfs−site.xml >> /usr/local/hadoop/hadoop−2.9.2/etc/hadoop/hdfs−site.xml
+RUN cat /opt/yarn−site.xml >> /usr/local/hadoop/hadoop−2.9.2/etc/hadoop/yarn−site.xml
+RUN head −n −3 /usr/local/hadoop/hadoop−2.9.2/etc/hadoop/mapred−site.xml.template > /usr/local/hadoop/hadoop−2.9.2/etc/hadoop/mapred−site.xml && \
+    cat /opt/mapred−site.xml >> /usr/local/hadoop/hadoop−2.9.2/etc/hadoop/mapred−site.xml
+
+#Spark
+RUN cd /opt && \
+    tar −xzvf spark−2.4.6−bin−hadoop2.7.tgz && \
+    mv spark−2.4.6−bin−hadoop2.7 spark−2.4.6 && \
+    mv spark−2.4.6 /usr/local
+RUN chown hduser:hadoop −R /usr/local/spark−2.4.6/
+RUN cd /usr/local/spark−2.4.6/conf && cp spark−env.sh.template spark−env.sh && \
+    cat /opt/spark−env.sh >> spark−env.sh
+
+RUN chown hduser:hadoop −R /scripts
+RUN rm −rf /opt

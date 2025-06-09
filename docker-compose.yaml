@@ -2,13 +2,27 @@ version: "3.7"
 
 services:
   elasticsearch:
-    container_name: course
+    container_name: course_elastic
     build:
       context: .
-      dockerfile: ./Dockerfile
+      dockerfile: ./Dockerfiles/Dockerfile_elastic
     command: tail -F anything
-    ports:
-      - "8000:80"
+    network_mode: host
     volumes:
-      - ./scripts:/scripts
+      - ./scripts/elastic:/scripts
       - ./inputs:/inputs
+    cpu_count: 1 
+    cpus: 1
+    mem_limit: 1g
+
+  kibana:
+    container_name: course_kibana
+    build:
+      context: .
+      dockerfile: ./Dockerfiles/Dockerfile_kibana
+    command: tail -F anything
+    network_mode: host
+    cpu_count: 1 
+    cpus: 1
+    mem_limit: 2g
+

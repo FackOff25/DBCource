@@ -12,7 +12,7 @@ RUN mkdir -p /scripts
 
 WORKDIR /scripts
 
-COPY ./for_install /opt
+COPY ./for_install/elasticsearch-7.17.0-linux-x86_64.tar.gz /opt/elasticsearch-7.17.0-linux-x86_64.tar.gz
 
 RUN cd /opt && tar -xzf elasticsearch-7.17.0-linux-x86_64.tar.gz
 RUN chown elasticsearch:elasticsearch -R /opt/elasticsearch-7.17.0
