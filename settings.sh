@@ -1,3 +1,4 @@
 CONTAINER_ELASTIC=course_elastic
 CONTAINER_KIBANA=course_kibana
 CONTAINER_NEO4J=course_neo4j
+CONTAINER_SPARK=course_spark

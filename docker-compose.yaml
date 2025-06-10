@@ -4,8 +4,8 @@ services:
   elasticsearch:
     container_name: course_elastic
     build:
-      context: .
-      dockerfile: ./Dockerfiles/Dockerfile_elastic
+      context: ./for_install/elastic
+      dockerfile: ./Dockerfile_elastic
     command: tail -F anything
     network_mode: host
     volumes:
@@ -18,8 +18,8 @@ services:
   kibana:
     container_name: course_kibana
     build:
-      context: .
-      dockerfile: ./Dockerfiles/Dockerfile_kibana
+      context: ./for_install/kibana
+      dockerfile: ./Dockerfile_kibana
     command: tail -F anything
     network_mode: host
     cpu_count: 1 
@@ -29,8 +29,8 @@ services:
   neo4j:
     container_name: course_neo4j
     build:
-      context: .
-      dockerfile: ./Dockerfiles/Dockerfile_neo4j
+      context: ./for_install/neo4j
+      dockerfile: ./Dockerfile_neo4j
     command: tail -F anything
     network_mode: host
     volumes:
@@ -38,3 +38,16 @@ services:
     cpu_count: 1 
     cpus: 1
     mem_limit: 1g
+
+  spark:
+    container_name: course_spark
+    build:
+      context: ./for_install/spark
+      dockerfile: ./Dockerfile_spark
+    command: tail -F anything
+    network_mode: host
+    volumes:
+      - ./scripts/spark:/scripts
+    cpu_count: 1 
+    cpus: 1
+    mem_limit: 2g

@@ -1,3 +1,4 @@
 /extras
-/for_install/*deb
-/for_install/*tar.gz
+/for_install/*/*deb
+/for_install/*/*tar.gz
+/for_install/*/*tgz

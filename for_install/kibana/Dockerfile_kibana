@@ -7,9 +7,9 @@ RUN apt-get install -y wget
 RUN apt-get install -y systemctl
 RUN apt-get install -y adduser
 
-COPY ./for_install/kibana-7.17.0-amd64.deb /opt/kibana-7.17.0-amd64.deb
+COPY ./kibana-7.17.0-amd64.deb /opt/kibana-7.17.0-amd64.deb
 
 RUN dpkg -i /opt/kibana-7.17.0-amd64.deb
-COPY ./for_install/kibana.yaml /etc/kibana/kibana.yml
+COPY ./kibana.yaml /etc/kibana/kibana.yml
 
 RUN apt-get install -y curl
