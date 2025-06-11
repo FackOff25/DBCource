@@ -51,3 +51,16 @@ services:
     cpu_count: 1 
     cpus: 1
     mem_limit: 2g
+
+  pgvector:
+    container_name: course_pgvector
+    build:
+      context: ./for_install/pgvector
+      dockerfile: ./Dockerfile_pgvector
+    command: tail -F anything
+    network_mode: host
+    volumes:
+      - ./scripts/pgvector:/scripts
+    cpu_count: 1 
+    cpus: 1
+    mem_limit: 1g
