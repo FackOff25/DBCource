@@ -20,7 +20,7 @@ query = {
 id_to_search = 1
 
 comand = f""" 
-SELECT *,
+SELECT card,
     embedding <-> (SELECT embedding FROM clients WHERE id = {id_to_search}) as distance
 FROM clients 
 WHERE id != {id_to_search} 

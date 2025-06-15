@@ -21,7 +21,7 @@ response = es.search(index="room", body=query)
 room_data = response["hits"]["hits"]
 for room in room_data:
     room_node = Node("Room", Id=room["_id"], Price=room["_source"]["day_price"])
-    #graph_db.create(room_node)
+    graph_db.create(room_node)
 
 response = es.search(index="clients", body=query)
 clients_data = response["hits"]["hits"]

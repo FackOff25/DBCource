@@ -1,9 +1,13 @@
 #! /bin/python3
 from elasticsearch import Elasticsearch
 import psycopg2
+from sentence_transformers import SentenceTransformer
 
 #the index client used to communicate with the database
 es = Elasticsearch("http://localhost:9200")
+# Модель для
+model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+embedding_dim = 384
 
 conn = psycopg2.connect(
 	dbname="iu6",
@@ -37,7 +41,7 @@ CREATE TABLE IF NOT EXISTS clients(
     staying_period INT NOT NULL,
     room_id INT NOT NULL,
     services TEXT NOT NULL,
-    embedding VECTOR("""+str(len(services) + 2)+""") NOT NULL
+    embedding VECTOR("""+str(384)+""") NOT NULL
 );
 """
 cur.execute(comand)
@@ -45,14 +49,7 @@ conn.commit()
 
 for client in clients_data:
   client_sevices = client["_source"]["services"]
-  embedding = []
-  embedding.append(int(client["_source"]["staying_period"]))
-  embedding.append(int(client["_source"]["room_id"]))
-  for service in services:
-    if service in client["_source"]["services"]:
-      embedding.append(1)
-    else:
-      embedding.append(0)
+  embedding = model.encode(client["_source"]["card"]).tolist()
 
   comand = f"""
     INSERT INTO clients (card, arriving_date, staying_period, room_id, services, embedding)

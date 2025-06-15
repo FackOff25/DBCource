@@ -20,3 +20,5 @@ RUN apt-get install -y python3-psycopg2
 RUN apt-get install -y git gcc postgresql-server-dev-16 make
 RUN git clone https://github.com/pgvector/pgvector 
 RUN cd pgvector && make install
+
+RUN pip install sentence-transformers --break-system-packages

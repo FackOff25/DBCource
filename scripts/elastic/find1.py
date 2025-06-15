@@ -33,6 +33,6 @@ searchBody = {
 result = client.search(index=clients_id, body=searchBody)
 
 result_str = json.dumps(result, indent=4, sort_keys=True)
-with open("../1.json", "w+") as resultfile:
+with open("./1.json", "w+") as resultfile:
     resultfile.write(result_str)
 pprint.pprint(result_str)
