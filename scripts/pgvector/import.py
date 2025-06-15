@@ -3,12 +3,14 @@ from elasticsearch import Elasticsearch
 import psycopg2
 from sentence_transformers import SentenceTransformer
 
-#the index client used to communicate with the database
+# подключение к ES для перекачки документов
 es = Elasticsearch("http://localhost:9200")
-# Модель для
+# Модель для расчёта векторов
 model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+# Длина вектора (если вдруг решим использовать другую модель)
 embedding_dim = 384
 
+# подключение к postgres, параметры как в ЛР
 conn = psycopg2.connect(
 	dbname="iu6",
 	user="postgres",
@@ -18,21 +20,17 @@ conn = psycopg2.connect(
 )
 cur = conn.cursor()
 
+# Запрос чтения всех записей из индекса ES
 query = {
   "size": 1000,
   "query": {"match_all": {}}
 }
 
+# чтение документов из ES и запись результатов в переменные
 response = es.search(index="clients", body=query)
 clients_data = response["hits"]["hits"]
-services = [
-  "breakfast",
-  "cleaning",
-  "dinner",
-  "gym",
-  "spa"
-]
 
+# Шаблон запроса создания таблицы клиентов с векторами
 comand = """
 CREATE TABLE IF NOT EXISTS clients(
     id SERIAL PRIMARY KEY,
@@ -44,13 +42,15 @@ CREATE TABLE IF NOT EXISTS clients(
     embedding VECTOR("""+str(384)+""") NOT NULL
 );
 """
+# Создание таблицы
 cur.execute(comand)
 conn.commit()
 
 for client in clients_data:
-  client_sevices = client["_source"]["services"]
+  # расчёт вектора клиента
   embedding = model.encode(client["_source"]["card"]).tolist()
 
+  # Запрос создания клиента
   comand = f"""
     INSERT INTO clients (card, arriving_date, staying_period, room_id, services, embedding)
     VALUES (
@@ -62,10 +62,11 @@ for client in clients_data:
         '{embedding}'::vector
     );
   """
-
+  # Примененте запроса создания клиента
   cur.execute(comand)
   conn.commit()
 
+# Вывод для проверки результата
 cur.execute('SELECT * FROM clients LIMIT 10')
 for row in cur:
     print(row)

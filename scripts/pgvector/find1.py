@@ -1,8 +1,7 @@
 #! /bin/python3
 import psycopg2
 
-#the index client used to communicate with the database
-
+# подключение к postgres, параметры как в ЛР
 conn = psycopg2.connect(
 	dbname="iu6",
 	user="postgres",
@@ -11,11 +10,6 @@ conn = psycopg2.connect(
 	port="5432"
 )
 cur = conn.cursor()
-
-query = {
-  "size": 1000,
-  "query": {"match_all": {}}
-}
 
 id_to_search = 1
 

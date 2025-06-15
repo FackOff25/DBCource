@@ -9,20 +9,21 @@ client = Elasticsearch("http://localhost:9200")
 rooms = "/inputs/rooms.json"
 clients = "/inputs/clients.json"
 
-# Индексы
+# Названия индексов
 rooms_id = "room"
 clients_id = "clients"
 
+# Анализатор
 analyzer_settings = {
   "settings": {
     "analysis": {
       "analyzer": {
-        "russian_analyzer": {
-          "tokenizer": "standard",
+        "russian_analyzer": { # идентификатор анализатора
+          "tokenizer": "standard", # убирает пунктуацию и делит текст на слова
           "filter": [
-            "lowercase", 
-            "russian_stop", 
-            "russian_snowball"
+            "lowercase", # переводит в нижний регистр
+            "russian_stop", # удаляет "стоп слова"
+            "russian_snowball" # удаляет всё, кроме основы слов
             ]
         }
       },
@@ -40,14 +41,14 @@ analyzer_settings = {
   }
 }
 
-
+# маппинги
 mapping_rooms = { 
     "mappings": {
      "properties": {
       "index": {"type": "keyword"},
       "doc_type":{"type": "keyword"},
       "id": {"type": "integer"},
-      "description": {"type": "text", "analyzer": "russian_analyzer"},
+      "description": {"type": "text", "analyzer": "russian_analyzer"}, # применяем анализатор
       "day_price": {"type": "integer"},
     }
   }
@@ -91,9 +92,11 @@ else:
 
 print("Importing documents...")
 with open(rooms, 'r') as file_data:
+  #чтение комнат из файла
   dataStore = json.load(file_data)
 for data in dataStore:
   try:
+    # запись комнат в БД
     client.index(index=data["index"],
       id=data["id"],
       body=data["body"]
@@ -104,9 +107,11 @@ for data in dataStore:
 print('Document ' + rooms + ' has been read')
 
 with open(clients, 'r') as file_data:
+  #чтение клиентов из файла
 	dataStore = json.load(file_data)
 for data in dataStore:
   try:
+     # запись клиентов в БД
     client.index(index=data["index"],
         id=data["id"],
         body=data["body"]
